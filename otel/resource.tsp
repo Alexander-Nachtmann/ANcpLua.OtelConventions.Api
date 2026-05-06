@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - OpenTelemetry Resource Model
+// ANcpLua v2.0 - OpenTelemetry Resource Model
 // =============================================================================
 // Resource attributes identifying the entity producing telemetry.
 // =============================================================================
@@ -7,9 +7,9 @@
 import "../common/types.tsp";
 import "./enums.tsp";
 
-using Qyl.Common;
+using ANcpLua.OtelConventions.Common;
 
-namespace Qyl.OTel.Resource;
+namespace ANcpLua.OtelConventions.OTel.Resource;
 
 // =============================================================================
 // Resource Model
@@ -18,31 +18,31 @@ namespace Qyl.OTel.Resource;
 @doc("Resource describes the entity producing telemetry")
 model Resource {
   @doc("Service name (required)")
-  @encodedName("application/json", Qyl.OTel.Keys.Service.Name)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Service.Name)
   serviceName: string;
 
   @doc("Service namespace for grouping")
-  @encodedName("application/json", Qyl.OTel.Keys.Service.Namespace)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Service.Namespace)
   serviceNamespace?: string;
 
   @doc("Service instance ID (unique per instance)")
-  @encodedName("application/json", Qyl.OTel.Keys.Service.InstanceId)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Service.InstanceId)
   serviceInstanceId?: string;
 
   @doc("Service version")
-  @encodedName("application/json", Qyl.OTel.Keys.Service.Version)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Service.Version)
   serviceVersion?: SemVer;
 
   @doc("Telemetry SDK name")
-  @encodedName("application/json", Qyl.OTel.Keys.Telemetry.SdkName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Telemetry.SdkName)
   telemetrySdkName?: string;
 
   @doc("Telemetry SDK language")
-  @encodedName("application/json", Qyl.OTel.Keys.Telemetry.SdkLanguage)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Telemetry.SdkLanguage)
   telemetrySdkLanguage?: Enums.TelemetrySdkLanguage;
 
   @doc("Telemetry SDK version")
-  @encodedName("application/json", Qyl.OTel.Keys.Telemetry.SdkVersion)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Telemetry.SdkVersion)
   telemetrySdkVersion?: SemVer;
 
   @doc("Auto-instrumentation agent name")
@@ -50,87 +50,87 @@ model Resource {
   telemetryAutoVersion?: SemVer;
 
   @doc("Deployment environment (e.g., production, staging)")
-  @encodedName("application/json", Qyl.OTel.Keys.Deployment.EnvironmentName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Deployment.EnvironmentName)
   deploymentEnvironment?: string;
 
   @doc("Cloud provider")
-  @encodedName("application/json", Qyl.OTel.Keys.Cloud.Provider)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Cloud.Provider)
   cloudProvider?: CloudProvider;
 
   @doc("Cloud region")
-  @encodedName("application/json", Qyl.OTel.Keys.Cloud.Region)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Cloud.Region)
   cloudRegion?: string;
 
   @doc("Cloud availability zone")
-  @encodedName("application/json", Qyl.OTel.Keys.Cloud.AvailabilityZone)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Cloud.AvailabilityZone)
   cloudAvailabilityZone?: string;
 
   @doc("Cloud account ID")
-  @encodedName("application/json", Qyl.OTel.Keys.Cloud.AccountId)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Cloud.AccountId)
   cloudAccountId?: string;
 
   @doc("Cloud platform (e.g., aws_ecs, gcp_cloud_run)")
-  @encodedName("application/json", Qyl.OTel.Keys.Cloud.Platform)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Cloud.Platform)
   cloudPlatform?: string;
 
   @doc("Host name")
-  @encodedName("application/json", Qyl.OTel.Keys.Host.Name)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Host.Name)
   hostName?: string;
 
   @doc("Host ID")
-  @encodedName("application/json", Qyl.OTel.Keys.Host.Id)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Host.Id)
   hostId?: string;
 
   @doc("Host type (e.g., n1-standard-1)")
-  @encodedName("application/json", Qyl.OTel.Keys.Host.Type)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Host.Type)
   hostType?: string;
 
   @doc("Host architecture (e.g., amd64, arm64)")
-  @encodedName("application/json", Qyl.OTel.Keys.Host.Arch)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Host.Arch)
   hostArch?: HostArch;
 
   @doc("Operating system type")
-  @encodedName("application/json", Qyl.OTel.Keys.Os.Type)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Os.Type)
   osType?: OsType;
 
   @doc("Operating system description")
-  @encodedName("application/json", Qyl.OTel.Keys.Os.Description)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Os.Description)
   osDescription?: string;
 
   @doc("Operating system version")
-  @encodedName("application/json", Qyl.OTel.Keys.Os.Version)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Os.Version)
   osVersion?: string;
 
   @doc("Process ID")
-  @encodedName("application/json", Qyl.OTel.Keys.Process.Pid)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Process.Pid)
   processPid?: int64;
 
   @doc("Process executable name")
-  @encodedName("application/json", Qyl.OTel.Keys.Process.ExecutableName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Process.ExecutableName)
   processExecutableName?: string;
 
   @doc("Process command line")
-  @encodedName("application/json", Qyl.OTel.Keys.Process.CommandLine)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Process.CommandLine)
   processCommandLine?: string;
 
   @doc("Process runtime name")
-  @encodedName("application/json", Qyl.OTel.Keys.Process.RuntimeName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Process.RuntimeName)
   processRuntimeName?: string;
 
   @doc("Process runtime version")
-  @encodedName("application/json", Qyl.OTel.Keys.Process.RuntimeVersion)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Process.RuntimeVersion)
   processRuntimeVersion?: string;
 
   @doc("Container ID")
-  @encodedName("application/json", Qyl.OTel.Keys.Container.Id)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Container.Id)
   containerId?: string;
 
   @doc("Container name")
-  @encodedName("application/json", Qyl.OTel.Keys.Container.Name)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Container.Name)
   containerName?: string;
 
   @doc("Container image name")
-  @encodedName("application/json", Qyl.OTel.Keys.Container.ImageName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Container.ImageName)
   containerImageName?: string;
 
   @doc("Container image tag")
@@ -138,23 +138,23 @@ model Resource {
   containerImageTag?: string;
 
   @doc("Kubernetes cluster name")
-  @encodedName("application/json", Qyl.OTel.Keys.K8s.ClusterName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.K8s.ClusterName)
   k8sClusterName?: string;
 
   @doc("Kubernetes namespace")
-  @encodedName("application/json", Qyl.OTel.Keys.K8s.NamespaceName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.K8s.NamespaceName)
   k8sNamespaceName?: string;
 
   @doc("Kubernetes pod name")
-  @encodedName("application/json", Qyl.OTel.Keys.K8s.PodName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.K8s.PodName)
   k8sPodName?: string;
 
   @doc("Kubernetes pod UID")
-  @encodedName("application/json", Qyl.OTel.Keys.K8s.PodUid)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.K8s.PodUid)
   k8sPodUid?: string;
 
   @doc("Kubernetes deployment name")
-  @encodedName("application/json", Qyl.OTel.Keys.K8s.DeploymentName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.K8s.DeploymentName)
   k8sDeploymentName?: string;
 
   @doc("Additional resource attributes")

@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Session Semantic Conventions (OTel v1.40)
+// ANcpLua v2.0 - Session Semantic Conventions (OTel v1.40)
 // =============================================================================
 // User session telemetry attributes.
 // =============================================================================
@@ -8,9 +8,9 @@ import "@typespec/openapi";
 import "../common/types.tsp";
 
 using TypeSpec.OpenAPI;
-using Qyl.Common;
+using ANcpLua.OtelConventions.Common;
 
-namespace Qyl.Domains.Observe.Session;
+namespace ANcpLua.OtelConventions.Domains.Observe.Session;
 
 // =============================================================================
 // Session Attributes
@@ -19,11 +19,11 @@ namespace Qyl.Domains.Observe.Session;
 @doc("Session span/event attributes")
 model SessionAttributes {
   @doc("Session ID")
-  @encodedName("application/json", Qyl.OTel.Keys.Session.Id)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Session.Id)
   id: SessionId;
 
   @doc("Previous session ID (for session continuity)")
-  @encodedName("application/json", Qyl.OTel.Keys.Session.PreviousId)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Session.PreviousId)
   previousId?: SessionId;
 }
 
@@ -38,7 +38,7 @@ model SessionEvent {
   eventName: SessionEventName;
 
   @doc("Session ID")
-  @encodedName("application/json", Qyl.OTel.Keys.Session.Id)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Session.Id)
   sessionId: SessionId;
 
   @doc("Event timestamp")
@@ -68,11 +68,11 @@ enum SessionEventName {
 model SessionEntity {
   @doc("Session ID")
   @key
-  @encodedName("application/json", Qyl.OTel.Keys.Session.Id)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Session.Id)
   sessionId: SessionId;
 
   @doc("User ID (if authenticated)")
-  @encodedName("application/json", Qyl.OTel.Keys.User.Id)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.User.Id)
   userId?: UserId;
 
   @doc("Session start time")

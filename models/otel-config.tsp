@@ -1,14 +1,14 @@
 // =============================================================================
-// QYL v2.0 - OpenTelemetry SDK Semantic Conventions (OTel v1.40)
+// ANcpLua v2.0 - OpenTelemetry SDK Semantic Conventions (OTel v1.40)
 // =============================================================================
 // OTel SDK configuration and telemetry scope attributes.
 // =============================================================================
 
 import "../common/types.tsp";
 
-using Qyl.Common;
+using ANcpLua.OtelConventions.Common;
 
-namespace Qyl.Domains.Observe.Otel;
+namespace ANcpLua.OtelConventions.Domains.Observe.Otel;
 
 // =============================================================================
 // Telemetry SDK Attributes
@@ -17,26 +17,26 @@ namespace Qyl.Domains.Observe.Otel;
 @doc("Telemetry SDK resource attributes")
 model TelemetrySdkAttributes {
   @doc("SDK name")
-  @encodedName("application/json", Qyl.OTel.Keys.Telemetry.SdkName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Telemetry.SdkName)
   name: string;
 
   @doc("SDK language")
-  @encodedName("application/json", Qyl.OTel.Keys.Telemetry.SdkLanguage)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Telemetry.SdkLanguage)
   language: TelemetrySdkLanguage;
 
   @doc("SDK version")
-  @encodedName("application/json", Qyl.OTel.Keys.Telemetry.SdkVersion)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Telemetry.SdkVersion)
   version: SemVer;
 }
 
 @doc("Telemetry distro attributes")
 model TelemetryDistroAttributes {
   @doc("Distro name")
-  @encodedName("application/json", Qyl.OTel.Keys.Telemetry.DistroName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Telemetry.DistroName)
   name?: string;
 
   @doc("Distro version")
-  @encodedName("application/json", Qyl.OTel.Keys.Telemetry.DistroVersion)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Telemetry.DistroVersion)
   version?: SemVer;
 }
 

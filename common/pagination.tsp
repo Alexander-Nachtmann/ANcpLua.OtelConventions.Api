@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Pagination Templates
+// ANcpLua v2.0 - Pagination Templates
 // =============================================================================
 // Reusable pagination patterns for list operations.
 // =============================================================================
@@ -9,7 +9,7 @@ import "./types.tsp";
 
 using TypeSpec.Http;
 
-namespace Qyl.Common.Pagination;
+namespace ANcpLua.OtelConventions.Common.Pagination;
 
 // =============================================================================
 // Cursor-Based Pagination (Preferred for Large Datasets)

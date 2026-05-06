@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Investigation Strategies
+// ANcpLua v2.0 - Investigation Strategies
 // =============================================================================
 // A deterministic sequence of steps to investigate a matched pattern.
 // The LLM does not invent investigation paths — it selects from known
@@ -10,7 +10,7 @@ import "@typespec/openapi";
 
 using TypeSpec.OpenAPI;
 
-namespace Qyl.Intelligence;
+namespace ANcpLua.OtelConventions.Intelligence;
 
 @doc("Single step in an investigation strategy")
 model InvestigationStep {

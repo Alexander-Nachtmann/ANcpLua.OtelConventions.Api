@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Storage Models
+// ANcpLua v2.0 - Storage Models
 // =============================================================================
 // Flattened storage models with DuckDB table generation extensions.
 // These are optimized for query performance, not wire format fidelity.
@@ -13,10 +13,10 @@ import "./enums.tsp";
 
 using TypeSpec.OpenAPI;
 using TypeSpec.JsonSchema;
-using Qyl.Common;
-using Qyl.OTel.Enums;
+using ANcpLua.OtelConventions.Common;
+using ANcpLua.OtelConventions.OTel.Enums;
 
-namespace Qyl.Storage;
+namespace ANcpLua.OtelConventions.Storage;
 
 // =============================================================================
 // SpanRecord - Primary Storage Model

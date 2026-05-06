@@ -4,17 +4,17 @@
   "private": true,
   "description": "Extracted TypeSpec API source for ANcpLua OpenTelemetry convention experiments",
   "scripts": {
-    "build:emitters": "tsc -p emitters/csharp && tsc -p emitters/duckdb && tsc -p emitters/ts-types && tsc -p emitters/qyl-semconv-lint",
+    "build:emitters": "tsc -p emitters/csharp && tsc -p emitters/duckdb && tsc -p emitters/ts-types && tsc -p emitters/otelconventions-lint",
     "compile": "npm run build:emitters && tsp compile main.tsp",
     "watch": "tsp compile main.tsp --watch",
     "format": "tsp format **/*.tsp",
     "lint": "npm run build:emitters && tsp compile main.tsp --no-emit --warn-as-error"
   },
   "devDependencies": {
-    "@qyl/typespec-emit-csharp": "file:./emitters/csharp",
-    "@qyl/typespec-emit-duckdb": "file:./emitters/duckdb",
-    "@qyl/typespec-emit-ts-types": "file:./emitters/ts-types",
-    "@qyl/typespec-qyl-semconv-lint": "file:./emitters/qyl-semconv-lint",
+    "@ancplua/typespec-emit-csharp": "file:./emitters/csharp",
+    "@ancplua/typespec-emit-duckdb": "file:./emitters/duckdb",
+    "@ancplua/typespec-emit-ts-types": "file:./emitters/ts-types",
+    "@ancplua/typespec-otelconventions-lint": "file:./emitters/otelconventions-lint",
     "@types/node": "25.6.0",
     "@typespec/compiler": "1.12.0-dev.6",
     "@typespec/events": "0.82.0-dev.2",

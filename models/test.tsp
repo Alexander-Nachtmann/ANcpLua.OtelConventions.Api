@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Test Semantic Conventions (OTel v1.40)
+// ANcpLua v2.0 - Test Semantic Conventions (OTel v1.40)
 // =============================================================================
 // Test execution telemetry attributes.
 // =============================================================================
@@ -8,9 +8,9 @@ import "@typespec/openapi";
 import "../common/types.tsp";
 
 using TypeSpec.OpenAPI;
-using Qyl.Common;
+using ANcpLua.OtelConventions.Common;
 
-namespace Qyl.Domains.Observe.Test;
+namespace ANcpLua.OtelConventions.Domains.Observe.Test;
 
 // =============================================================================
 // Test Attributes
@@ -19,19 +19,19 @@ namespace Qyl.Domains.Observe.Test;
 @doc("Test case attributes")
 model TestAttributes {
   @doc("Test case name")
-  @encodedName("application/json", Qyl.OTel.Keys.Test.CaseName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Test.CaseName)
   caseName: string;
 
   @doc("Test case result")
-  @encodedName("application/json", Qyl.OTel.Keys.Test.CaseResultStatus)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Test.CaseResultStatus)
   caseResultStatus?: TestResultStatus;
 
   @doc("Test suite name")
-  @encodedName("application/json", Qyl.OTel.Keys.Test.SuiteName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Test.SuiteName)
   suiteName?: string;
 
   @doc("Test suite run status")
-  @encodedName("application/json", Qyl.OTel.Keys.Test.SuiteRunStatus)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Test.SuiteRunStatus)
   suiteRunStatus?: TestSuiteRunStatus;
 }
 
@@ -255,11 +255,11 @@ model TestRunCountMetric {
   unit: "{run}";
 
   @doc("Suite name")
-  @encodedName("application/json", Qyl.OTel.Keys.Test.SuiteName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Test.SuiteName)
   suiteName: string;
 
   @doc("Status")
-  @encodedName("application/json", Qyl.OTel.Keys.Test.SuiteRunStatus)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Test.SuiteRunStatus)
   status: TestSuiteRunStatus;
 }
 
@@ -272,11 +272,11 @@ model TestCaseCountMetric {
   unit: "{test}";
 
   @doc("Suite name")
-  @encodedName("application/json", Qyl.OTel.Keys.Test.SuiteName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Test.SuiteName)
   suiteName: string;
 
   @doc("Result status")
-  @encodedName("application/json", Qyl.OTel.Keys.Test.CaseResultStatus)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Test.CaseResultStatus)
   resultStatus: TestResultStatus;
 }
 
@@ -289,7 +289,7 @@ model TestDurationMetric {
   unit: "s";
 
   @doc("Suite name")
-  @encodedName("application/json", Qyl.OTel.Keys.Test.SuiteName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Test.SuiteName)
   suiteName: string;
 }
 

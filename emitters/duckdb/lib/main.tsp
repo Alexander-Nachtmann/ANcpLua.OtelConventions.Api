@@ -2,7 +2,7 @@ import "../dist/index.js";
 
 using TypeSpec.Reflection;
 
-namespace Qyl.Emit.DuckDb;
+namespace ANcpLua.OtelConventions.Emit.DuckDb;
 
 extern dec duckdbTable(target: Model, name: valueof string);
 extern dec duckdbColumn(target: ModelProperty, name: valueof string);

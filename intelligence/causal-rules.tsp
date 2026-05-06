@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Causal Rules
+// ANcpLua v2.0 - Causal Rules
 // =============================================================================
 // Directed relationship between two diagnostic patterns: if cause is observed,
 // effect is likely. Causal rules build a directed graph. Given matched patterns,
@@ -11,7 +11,7 @@ import "@typespec/openapi";
 
 using TypeSpec.OpenAPI;
 
-namespace Qyl.Intelligence;
+namespace ANcpLua.OtelConventions.Intelligence;
 
 @doc("Directed causal relationship between two diagnostic patterns")
 model CausalRule {

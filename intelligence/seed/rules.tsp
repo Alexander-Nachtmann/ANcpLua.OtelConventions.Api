@@ -1,11 +1,11 @@
 // =============================================================================
-// QYL v2.0 - Seed Causal Rules (v1)
+// ANcpLua v2.0 - Seed Causal Rules (v1)
 // =============================================================================
 // 6 initial causal rules. Source: specs/telemetry-intelligence.md §5.2
 // These compile to static registries in CausalRules.g.cs.
 // =============================================================================
 
-namespace Qyl.Intelligence.Seed;
+namespace ANcpLua.OtelConventions.Intelligence.Seed;
 
 // ---------------------------------------------------------------------------
 // Rule: deploy_causes_regression

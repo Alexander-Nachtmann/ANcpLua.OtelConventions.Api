@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Diagnostic Patterns
+// ANcpLua v2.0 - Diagnostic Patterns
 // =============================================================================
 // A named combination of signals that identifies a known failure mode.
 // All signals in a pattern must match (conjunction). Multiple patterns can
@@ -10,7 +10,7 @@ import "@typespec/openapi";
 
 using TypeSpec.OpenAPI;
 
-namespace Qyl.Intelligence;
+namespace ANcpLua.OtelConventions.Intelligence;
 
 @doc("Classification category for diagnostic patterns")
 enum PatternCategory {

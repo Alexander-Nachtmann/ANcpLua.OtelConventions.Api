@@ -1,6 +1,6 @@
 # ANcpLua.OtelConventions.Api
 
-Private extracted TypeSpec source for ANcpLua OpenTelemetry convention API experiments.
+Private TypeSpec source for ANcpLua OpenTelemetry convention API experiments.
 
 This repository was extracted from `Alexander-Nachtmann/qyl` after PR #255:
 
@@ -13,7 +13,7 @@ The source is not an official OpenTelemetry repository and must not be treated a
 - `main.tsp` is the TypeSpec entry point.
 - `otel/` contains OpenTelemetry-shaped core models.
 - `generated/otel-keys.gen.tsp` contains generated semantic-convention key constants from upstream semantic conventions pinned at v1.41.0.
-- `models/`, `api/`, `common/`, `telemetry/`, and `intelligence/` contain extracted qyl-origin API models and routes.
+- `models/`, `api/`, `common/`, and `intelligence/` contain the API models and routes.
 - `emitters/` contains local TypeSpec emitters required by `tspconfig.yaml`.
 
 ## Commands

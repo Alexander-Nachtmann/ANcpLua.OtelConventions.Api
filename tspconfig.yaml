@@ -1,24 +1,25 @@
 # ANcpLua.OtelConventions.Api TypeSpec configuration.
-# Extracted from qyl core/specs after PR #255. Output paths are intentionally
-# local to this repository so compilation cannot write back into qyl.
+# Extracted from Alexander-Nachtmann/qyl after PR #255. Output paths are
+# intentionally local to this repository so compilation cannot write back into
+# the source repo.
 
 emit:
-  - "@qyl/typespec-emit-csharp"
-  - "@qyl/typespec-emit-duckdb"
-  - "@qyl/typespec-emit-ts-types"
+  - "@ancplua/typespec-emit-csharp"
+  - "@ancplua/typespec-emit-duckdb"
+  - "@ancplua/typespec-emit-ts-types"
   - "@typespec/http-client-csharp"
   - "@typespec/http-client-js"
   - "@typespec/http-server-csharp"
   - "@typespec/json-schema"
 
 options:
-  "@qyl/typespec-emit-csharp":
+  "@ancplua/typespec-emit-csharp":
     emitter-output-dir: "{project-root}/generated/contracts"
 
-  "@qyl/typespec-emit-duckdb":
+  "@ancplua/typespec-emit-duckdb":
     emitter-output-dir: "{project-root}/generated/duckdb"
 
-  "@qyl/typespec-emit-ts-types":
+  "@ancplua/typespec-emit-ts-types":
     emitter-output-dir: "{project-root}/generated/ts-types"
 
   "@typespec/http-client-csharp":

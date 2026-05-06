@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - OpenTelemetry Profiles Model (v1development)
+// ANcpLua v2.0 - OpenTelemetry Profiles Model (v1development)
 // =============================================================================
 // Continuous profiling signal following OTel Profiles proto specification.
 // Proto package: opentelemetry.proto.profiles.v1development
@@ -14,11 +14,11 @@ import "./resource.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.OpenAPI;
-using Qyl.Common;
-using Qyl.OTel.Enums;
-using Qyl.OTel.Resource;
+using ANcpLua.OtelConventions.Common;
+using ANcpLua.OtelConventions.OTel.Enums;
+using ANcpLua.OtelConventions.OTel.Resource;
 
-namespace Qyl.OTel.Profiles;
+namespace ANcpLua.OtelConventions.OTel.Profiles;
 
 // =============================================================================
 // Profile Model
@@ -69,7 +69,7 @@ model Profile {
   droppedAttributesCount?: Count;
 
   @doc("Resource describing the entity that produced this profile")
-  resource: Qyl.OTel.Resource.Resource;
+  resource: ANcpLua.OtelConventions.OTel.Resource.Resource;
 
   @doc("Instrumentation scope")
   @encodedName("application/json", "instrumentation_scope")

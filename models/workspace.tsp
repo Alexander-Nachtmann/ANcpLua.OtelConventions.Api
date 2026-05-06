@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Workspace & Identity Entities
+// ANcpLua v2.0 - Workspace & Identity Entities
 // =============================================================================
 // Local-first workspace envelope, handshake, tokens, process registry.
 // =============================================================================
@@ -8,9 +8,9 @@ import "@typespec/openapi";
 import "../common/types.tsp";
 
 using TypeSpec.OpenAPI;
-using Qyl.Common;
+using ANcpLua.OtelConventions.Common;
 
-namespace Qyl.Domains.Workspace;
+namespace ANcpLua.OtelConventions.Domains.Workspace;
 
 // =============================================================================
 // Project
@@ -379,7 +379,7 @@ model ProcessRegistryEntity {
   status: ProcessStatus;
 }
 
-@doc("QYL process types")
+@doc("ANcpLua process types")
 enum ProcessType {
   @doc("Collector backend")
   collector: "collector",

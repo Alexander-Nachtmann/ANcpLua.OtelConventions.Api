@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Error Models
+// ANcpLua v2.0 - Error Models
 // =============================================================================
 // Standardized error responses following RFC 7807 Problem Details.
 // =============================================================================
@@ -8,7 +8,7 @@ import "@typespec/http";
 
 using TypeSpec.Http;
 
-namespace Qyl.Common.Errors;
+namespace ANcpLua.OtelConventions.Common.Errors;
 
 // =============================================================================
 // RFC 7807 Problem Details Base

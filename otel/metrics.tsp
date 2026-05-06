@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - OpenTelemetry Metrics Model
+// ANcpLua v2.0 - OpenTelemetry Metrics Model
 // =============================================================================
 // Metrics data model with discriminated unions for different metric types.
 // =============================================================================
@@ -10,11 +10,11 @@ import "./enums.tsp";
 import "./resource.tsp";
 
 using TypeSpec.Http;
-using Qyl.Common;
-using Qyl.OTel.Enums;
-using Qyl.OTel.Resource;
+using ANcpLua.OtelConventions.Common;
+using ANcpLua.OtelConventions.OTel.Enums;
+using ANcpLua.OtelConventions.OTel.Resource;
 
-namespace Qyl.OTel.Metrics;
+namespace ANcpLua.OtelConventions.OTel.Metrics;
 
 // =============================================================================
 // Metric Model
@@ -39,7 +39,7 @@ model Metric {
   metadata?: Attribute[];
 
   @doc("Resource describing the entity that produced this metric")
-  resource: Qyl.OTel.Resource.Resource;
+  resource: ANcpLua.OtelConventions.OTel.Resource.Resource;
 
   @doc("Instrumentation scope")
   @encodedName("application/json", "instrumentation_scope")

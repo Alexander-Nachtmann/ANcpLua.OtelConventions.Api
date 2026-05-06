@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - OpenTelemetry Log Record Model
+// ANcpLua v2.0 - OpenTelemetry Log Record Model
 // =============================================================================
 // Structured logging following OTel log data model.
 // =============================================================================
@@ -12,11 +12,11 @@ import "./resource.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.OpenAPI;
-using Qyl.Common;
-using Qyl.OTel.Enums;
-using Qyl.OTel.Resource;
+using ANcpLua.OtelConventions.Common;
+using ANcpLua.OtelConventions.OTel.Enums;
+using ANcpLua.OtelConventions.OTel.Resource;
 
-namespace Qyl.OTel.Logs;
+namespace ANcpLua.OtelConventions.OTel.Logs;
 
 // =============================================================================
 // Log Record Model
@@ -62,7 +62,7 @@ model LogRecord {
   spanId?: SpanId;
 
   @doc("Resource describing the entity that produced this log")
-  resource: Qyl.OTel.Resource.Resource;
+  resource: ANcpLua.OtelConventions.OTel.Resource.Resource;
 
   @doc("Instrumentation scope")
   @encodedName("application/json", "instrumentation_scope")

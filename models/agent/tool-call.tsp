@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Tool Call Storage Model (OTel v1.40)
+// ANcpLua v2.0 - Tool Call Storage Model (OTel v1.40)
 // =============================================================================
 // Materialized tool call records extracted from OTLP spans.
 // Maps OTel GenAI tool semantic convention attributes to DuckDB columns.
@@ -19,10 +19,10 @@ import "../../common/types.tsp";
 import "../../otel/enums.tsp";
 
 using TypeSpec.OpenAPI;
-using Qyl.Common;
-using Qyl.OTel.Enums;
+using ANcpLua.OtelConventions.Common;
+using ANcpLua.OtelConventions.OTel.Enums;
 
-namespace Qyl.Domains.Agent.ToolCall;
+namespace ANcpLua.OtelConventions.Domains.Agent.ToolCall;
 
 // =============================================================================
 // Tool Call Status

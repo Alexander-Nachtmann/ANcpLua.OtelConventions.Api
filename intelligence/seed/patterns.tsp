@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Seed Diagnostic Patterns (v1)
+// ANcpLua v2.0 - Seed Diagnostic Patterns (v1)
 // =============================================================================
 // 19 initial diagnostic patterns (10 infra + 9 agent behavioral)
 // Source: specs/telemetry-intelligence.md §5.1 + Microsoft Research AgentRx (March 2026)
@@ -7,11 +7,11 @@
 //
 // Signal attributes reference:
 //   - OTel semconv promoted columns (status_code, duration_ns, etc.)
-//   - qyl promoted columns (gen_ai_provider_name, gen_ai_stop_reason, etc.)
+//   - ANcpLua promoted columns (gen_ai_provider_name, gen_ai_stop_reason, etc.)
 //   - Computed fields (occurrence_rate, span_count_under_parent, etc.)
 // =============================================================================
 
-namespace Qyl.Intelligence.Seed;
+namespace ANcpLua.OtelConventions.Intelligence.Seed;
 
 // ---------------------------------------------------------------------------
 // Pattern: genai_rate_limit

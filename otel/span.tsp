@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - OpenTelemetry Span Model
+// ANcpLua v2.0 - OpenTelemetry Span Model
 // =============================================================================
 // Distributed tracing span representation following OTel specification.
 // =============================================================================
@@ -12,11 +12,11 @@ import "./resource.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.OpenAPI;
-using Qyl.Common;
-using Qyl.OTel.Enums;
-using Qyl.OTel.Resource;
+using ANcpLua.OtelConventions.Common;
+using ANcpLua.OtelConventions.OTel.Enums;
+using ANcpLua.OtelConventions.OTel.Resource;
 
-namespace Qyl.OTel.Traces;
+namespace ANcpLua.OtelConventions.OTel.Traces;
 
 // =============================================================================
 // Span Model
@@ -84,7 +84,7 @@ model Span {
   flags?: int32;
 
   @doc("Resource describing the entity that produced this span")
-  resource: Qyl.OTel.Resource.Resource;
+  resource: ANcpLua.OtelConventions.OTel.Resource.Resource;
 
   @doc("Instrumentation scope")
   @encodedName("application/json", "instrumentation_scope")

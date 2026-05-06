@@ -1,7 +1,7 @@
 {
-  "name": "@qyl/typespec-qyl-semconv-lint",
+  "name": "@ancplua/typespec-otelconventions-lint",
   "version": "0.1.0",
-  "description": "TypeSpec library that lints qyl-owned telemetry attributes against OTel semconv.",
+  "description": "TypeSpec library that lints ANcpLua-owned telemetry attributes against OTel semconv.",
   "type": "module",
   "main": "dist/index.js",
   "tspMain": "lib/main.tsp",

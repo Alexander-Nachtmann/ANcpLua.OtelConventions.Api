@@ -4,9 +4,9 @@
 import { resolvePath } from "@typespec/compiler";
 import { createTester } from "@typespec/compiler/testing";
 
-// .import() explicitly adds `import "@qyl/typespec-qyl-semconv-lint";` to the synthetic main.tsp
-// of every fixture. The fixture itself opens the namespace via `using Qyl.Semconv;` — bundling
+// .import() explicitly adds `import "@ancplua/typespec-otelconventions-lint";` to the synthetic main.tsp
+// of every fixture. The fixture itself opens the namespace via `using ANcpLua.OtelConventions.Semconv;` — bundling
 // that into `.using()` double-registers the decorator and triggers `ambiguous-symbol`.
 export const Tester = createTester(resolvePath(import.meta.dirname, ".."), {
-    libraries: ["@qyl/typespec-qyl-semconv-lint"],
-}).import("@qyl/typespec-qyl-semconv-lint");
+    libraries: ["@ancplua/typespec-otelconventions-lint"],
+}).import("@ancplua/typespec-otelconventions-lint");

@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Seed Investigation Strategies (v1)
+// ANcpLua v2.0 - Seed Investigation Strategies (v1)
 // =============================================================================
 // 4 initial investigation strategies. Source: specs/telemetry-intelligence.md §5.3
 // These compile to static registries in InvestigationStrategies.g.cs.
@@ -8,7 +8,7 @@
 // Query templates use DuckDB SQL against the telemetry data model schema.
 // =============================================================================
 
-namespace Qyl.Intelligence.Seed;
+namespace ANcpLua.OtelConventions.Intelligence.Seed;
 
 // ---------------------------------------------------------------------------
 // Strategy: investigate_error_issue

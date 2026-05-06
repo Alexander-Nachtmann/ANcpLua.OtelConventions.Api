@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Workflow DAG Runtime Entities
+// ANcpLua v2.0 - Workflow DAG Runtime Entities
 // =============================================================================
 // Workflow runs, nodes, checkpoints, shared state, events, routing rules.
 // =============================================================================
@@ -8,9 +8,9 @@ import "@typespec/openapi";
 import "../common/types.tsp";
 
 using TypeSpec.OpenAPI;
-using Qyl.Common;
+using ANcpLua.OtelConventions.Common;
 
-namespace Qyl.Domains.Workflow;
+namespace ANcpLua.OtelConventions.Domains.Workflow;
 
 // =============================================================================
 // Workflow Run

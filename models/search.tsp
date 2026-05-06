@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Unified Search Entities
+// ANcpLua v2.0 - Unified Search Entities
 // =============================================================================
 // Search documents, inverted index, query telemetry.
 // =============================================================================
@@ -8,9 +8,9 @@ import "@typespec/openapi";
 import "../common/types.tsp";
 
 using TypeSpec.OpenAPI;
-using Qyl.Common;
+using ANcpLua.OtelConventions.Common;
 
-namespace Qyl.Domains.Search;
+namespace ANcpLua.OtelConventions.Domains.Search;
 
 // =============================================================================
 // Search Document

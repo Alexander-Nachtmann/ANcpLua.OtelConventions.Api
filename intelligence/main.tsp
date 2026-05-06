@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Telemetry Intelligence Model
+// ANcpLua v2.0 - Telemetry Intelligence Model
 // =============================================================================
 // Canonical reasoning model over telemetry data. Schema-driven, generated,
 // deterministic. Defines diagnostic patterns, causal rules, and investigation

@@ -1,15 +1,13 @@
-# TypeSpec versioning in qyl
+# TypeSpec versioning in ANcpLua
 
-qyl uses `@typespec/versioning` to record when schema elements were added or removed across
-OpenTelemetry semantic convention versions. The annotations live in the TypeSpec "God Schema"
-and act as the canonical history for schema evolution.
+This repository uses `@typespec/versioning` to record when schema elements were added or removed across OpenTelemetry semantic-convention versions. The annotations live in TypeSpec and make schema evolution reviewable in this sandbox.
 
 ## Where it is used
 
-- `core/specs/domains/ai/genai.tsp` for GenAI semantic conventions
-- `core/specs/domains/data/db.tsp` for DB semantic conventions
-- `core/specs/domains/transport/http.tsp` for HTTP semantic conventions
-- `core/specs/api/routes.tsp` for API versioning
+- `models/genai.tsp` for GenAI semantic-convention shaped models
+- `models/db.tsp` for DB semantic-convention shaped models
+- `models/http.tsp` for HTTP semantic-convention shaped models
+- `api/routes.tsp` for API versioning
 
 ## Pattern: version registry + annotations
 
@@ -18,7 +16,7 @@ import "@typespec/versioning";
 using TypeSpec.Versioning;
 
 @versioned(GenAiVersions)
-namespace Qyl.Domains.AI.GenAi;
+namespace ANcpLua.OtelConventions.Domains.AI.GenAi;
 
 enum GenAiVersions {
   v1_27: "1.27.0",
@@ -31,15 +29,15 @@ enum GenAiVersions {
 }
 
 model GenAiSpanAttributes {
-  @encodedName("application/json", "gen_ai.system")
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.GenAi.System)
   @removed(GenAiVersions.v1_37)
   system?: string;
 
-  @encodedName("application/json", "gen_ai.usage.prompt_tokens")
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.GenAi.UsagePromptTokens)
   @removed(GenAiVersions.v1_28)
   usagePromptTokens?: TokenCount;
 
-  @encodedName("application/json", "gen_ai.usage.input_tokens")
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.GenAi.UsageInputTokens)
   usageInputTokens?: TokenCount;
 
   @encodedName("application/json", "gen_ai.usage.input_tokens.cached")
@@ -50,8 +48,7 @@ model GenAiSpanAttributes {
 
 ## Ingestion mapping (deprecated -> current)
 
-qyl keeps ingestion backward-compatible by normalizing deprecated attribute keys. This mapping
-is maintained in code and aligned with the TypeSpec history.
+Consumers can keep ingestion backward-compatible by normalizing deprecated attribute keys. Keep any downstream mapping aligned with the TypeSpec history.
 
 ```csharp
 public static readonly FrozenDictionary<string, string> DeprecatedMappings =
@@ -65,12 +62,12 @@ public static readonly FrozenDictionary<string, string> DeprecatedMappings =
     }.ToFrozenDictionary(StringComparer.Ordinal);
 ```
 
-Tests for the mappings live in `tests/qyl.collector.tests/Ingestion/SchemaNormalizerTests.cs`.
+Downstream consumers should cover these mappings in ingestion tests.
 
 ## Workflow for schema evolution
 
 - Add a new version entry to the enum in the owning namespace.
 - Mark additions and removals with `@added` and `@removed`.
-- Update `SchemaNormalizer.DeprecatedMappings` to keep ingestion compatibility.
-- Extend `SchemaNormalizerTests` to cover the new mapping.
-- Run `nuke Generate` after TypeSpec changes.
+- Update downstream normalization mappings to keep ingestion compatibility.
+- Extend downstream ingestion tests to cover the new mapping.
+- Run `npm run compile` after TypeSpec changes.

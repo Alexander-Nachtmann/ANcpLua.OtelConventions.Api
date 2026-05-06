@@ -1,7 +1,7 @@
 {
-  "name": "@qyl/typespec-emit-ts-types",
+  "name": "@ancplua/typespec-emit-ts-types",
   "version": "0.1.0",
-  "description": "qyl-native TypeSpec emitter for TypeScript types (branded scalars + interfaces)",
+  "description": "ANcpLua TypeSpec emitter for TypeScript types (branded scalars + interfaces)",
   "type": "module",
   "main": "dist/index.js",
   "tspMain": "lib/main.tsp",

@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Workflow Execution Storage Model (OTel v1.40)
+// ANcpLua v2.0 - Workflow Execution Storage Model (OTel v1.40)
 // =============================================================================
 // Workflow execution tracking for multi-step AI agent workflows.
 // Formalizes the existing manual DuckDB table into TypeSpec.
@@ -10,10 +10,10 @@ import "../../common/types.tsp";
 import "../../otel/enums.tsp";
 
 using TypeSpec.OpenAPI;
-using Qyl.Common;
-using Qyl.OTel.Enums;
+using ANcpLua.OtelConventions.Common;
+using ANcpLua.OtelConventions.OTel.Enums;
 
-namespace Qyl.Domains.Agent.Workflow;
+namespace ANcpLua.OtelConventions.Domains.Agent.Workflow;
 
 // =============================================================================
 // Workflow Execution Status

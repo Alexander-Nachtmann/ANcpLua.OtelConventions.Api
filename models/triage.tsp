@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Triage Models (Loom Pipeline)
+// ANcpLua v2.0 - Triage Models (Loom Pipeline)
 // =============================================================================
 // AI-powered triage pipeline: score fixability, summarize, and route errors.
 // =============================================================================
@@ -8,9 +8,9 @@ import "@typespec/openapi";
 import "../common/types.tsp";
 
 using TypeSpec.OpenAPI;
-using Qyl.Common;
+using ANcpLua.OtelConventions.Common;
 
-namespace Qyl.Domains.Loom.Triage;
+namespace ANcpLua.OtelConventions.Domains.Loom.Triage;
 
 // =============================================================================
 // Triage Automation Level

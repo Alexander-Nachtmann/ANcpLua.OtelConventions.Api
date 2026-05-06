@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Workflow Checkpoint Storage Model (OTel v1.40)
+// ANcpLua v2.0 - Workflow Checkpoint Storage Model (OTel v1.40)
 // =============================================================================
 // Checkpoint state persistence for workflow execution recovery.
 // Enables resume-from-checkpoint after failures or cancellations.
@@ -9,9 +9,9 @@ import "@typespec/openapi";
 import "../../common/types.tsp";
 
 using TypeSpec.OpenAPI;
-using Qyl.Common;
+using ANcpLua.OtelConventions.Common;
 
-namespace Qyl.Domains.Agent.Checkpoint;
+namespace ANcpLua.OtelConventions.Domains.Agent.Checkpoint;
 
 // =============================================================================
 // Workflow Checkpoint Entity - Storage Model

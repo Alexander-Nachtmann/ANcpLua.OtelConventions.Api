@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 
 import registryJson from "../data/otel-attribute-registry.json" with { type: "json" };
-import type { QylAttrPrimitive } from "./index.js";
+import type { AncpluaAttrPrimitive } from "./index.js";
 
 interface RawOtelAttr {
     name: string;
@@ -14,7 +14,7 @@ interface RawOtelAttr {
 
 export interface OtelAttr {
     name: string;
-    type: QylAttrPrimitive;
+    type: AncpluaAttrPrimitive;
     stability: "experimental" | "stable" | "deprecated" | "development";
     deprecated: boolean;
     group: string;
@@ -23,7 +23,7 @@ export interface OtelAttr {
 /**
  * Reserved top-level OTel namespaces. Any attribute that starts with one of
  * these prefixes (followed by a `.`) is owned by upstream and may not be
- * redeclared under `@qylAttr`.
+ * redeclared under `@ancpluaAttr`.
  *
  * Source: https://opentelemetry.io/docs/specs/semconv/ (registry 1.40).
  * Extend when Weaver advances past 1.40; do not let the list drift silently.
@@ -81,7 +81,7 @@ export const RESERVED_PREFIXES: readonly string[] = [
     "ios.",
 ] as const;
 
-function normalizeType(raw: string): QylAttrPrimitive {
+function normalizeType(raw: string): AncpluaAttrPrimitive {
     // Weaver emits "int" as a 64-bit integer in OTel attribute space; collapse to our
     // canonical "long". Any other exotic upstream type collapses to "string" since
     // the library only cares about primitive classification for drift checks.

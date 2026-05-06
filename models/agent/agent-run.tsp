@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Agent Run Storage Model (OTel v1.40)
+// ANcpLua v2.0 - Agent Run Storage Model (OTel v1.40)
 // =============================================================================
 // Materialized agent run records extracted from OTLP spans.
 // Maps OTel GenAI semantic convention attributes to DuckDB columns.
@@ -20,10 +20,10 @@ import "../../common/types.tsp";
 import "../../otel/enums.tsp";
 
 using TypeSpec.OpenAPI;
-using Qyl.Common;
-using Qyl.OTel.Enums;
+using ANcpLua.OtelConventions.Common;
+using ANcpLua.OtelConventions.OTel.Enums;
 
-namespace Qyl.Domains.Agent.Run;
+namespace ANcpLua.OtelConventions.Domains.Agent.Run;
 
 // =============================================================================
 // Agent Run Status

@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Alerting & Autofix Entities
+// ANcpLua v2.0 - Alerting & Autofix Entities
 // =============================================================================
 // Alert rules, firings, fix runs, artifacts, policy gates.
 // =============================================================================
@@ -8,9 +8,9 @@ import "@typespec/openapi";
 import "../common/types.tsp";
 
 using TypeSpec.OpenAPI;
-using Qyl.Common;
+using ANcpLua.OtelConventions.Common;
 
-namespace Qyl.Domains.Alerting;
+namespace ANcpLua.OtelConventions.Domains.Alerting;
 
 // =============================================================================
 // Alert Rule

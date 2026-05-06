@@ -1,9 +1,9 @@
-import "@qyl/typespec-emit-csharp";
+import "@ancplua/typespec-emit-csharp";
 
-using Qyl.Emit.CSharp;
+using ANcpLua.OtelConventions.Emit.CSharp;
 
-@csharpNamespace("Qyl.Test")
-namespace Qyl.Test;
+@csharpNamespace("ANcpLua.OtelConventions.Test")
+namespace ANcpLua.OtelConventions.Test;
 
 @csharpRecord
 model Point {

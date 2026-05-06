@@ -2,6 +2,6 @@ import "../dist/index.js";
 
 using TypeSpec.Reflection;
 
-namespace Qyl.Emit.TsTypes;
+namespace ANcpLua.OtelConventions.Emit.TsTypes;
 
 extern dec tsBrand(target: Scalar);

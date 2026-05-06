@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Configurator & Code Generation Entities
+// ANcpLua v2.0 - Configurator & Code Generation Entities
 // =============================================================================
 // Generation profiles, selections, jobs, schema promotions.
 // =============================================================================
@@ -8,9 +8,9 @@ import "@typespec/openapi";
 import "../common/types.tsp";
 
 using TypeSpec.OpenAPI;
-using Qyl.Common;
+using ANcpLua.OtelConventions.Common;
 
-namespace Qyl.Domains.Configurator;
+namespace ANcpLua.OtelConventions.Domains.Configurator;
 
 // =============================================================================
 // Generation Profile

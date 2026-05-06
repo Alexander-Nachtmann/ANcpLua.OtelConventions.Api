@@ -1,18 +1,18 @@
 import { createTypeSpecLibrary, paramMessage } from "@typespec/compiler";
 
 export const $lib = createTypeSpecLibrary({
-  name: "@qyl/typespec-emit-csharp",
+  name: "@ancplua/typespec-emit-csharp",
   diagnostics: {
     "unmapped-type": {
       severity: "error",
       messages: {
-        default: paramMessage`QYL-EMIT-001: unmapped type '${"name"}' — add a mapping or decorate the model with @csharpNamespace`,
+        default: paramMessage`ANcpLua-EMIT-001: unmapped type '${"name"}' — add a mapping or decorate the model with @csharpNamespace`,
       },
     },
     "missing-namespace": {
       severity: "error",
       messages: {
-        default: paramMessage`QYL-EMIT-002: model '${"name"}' has no @csharpNamespace (inherited or direct)`,
+        default: paramMessage`ANcpLua-EMIT-002: model '${"name"}' has no @csharpNamespace (inherited or direct)`,
       },
     },
   },

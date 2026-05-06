@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Signal Primitive
+// ANcpLua v2.0 - Signal Primitive
 // =============================================================================
 // The atomic unit of telemetry observation. A single attribute condition.
 // Signals reference semconv attributes and promoted DuckDB columns only.
@@ -9,7 +9,7 @@ import "@typespec/openapi";
 
 using TypeSpec.OpenAPI;
 
-namespace Qyl.Intelligence;
+namespace ANcpLua.OtelConventions.Intelligence;
 
 @doc("Comparison operator for signal evaluation")
 enum SignalOperator {

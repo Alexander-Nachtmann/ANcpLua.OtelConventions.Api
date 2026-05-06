@@ -1,7 +1,7 @@
 {
-  "name": "@qyl/typespec-emit-duckdb",
+  "name": "@ancplua/typespec-emit-duckdb",
   "version": "0.1.0",
-  "description": "qyl-native TypeSpec emitter for DuckDB schema DDL (.g.cs)",
+  "description": "ANcpLua TypeSpec emitter for DuckDB schema DDL (.g.cs)",
   "type": "module",
   "main": "dist/index.js",
   "tspMain": "lib/main.tsp",
@@ -14,7 +14,7 @@
   "scripts": {
     "build": "tsc -p .",
     "prepare": "tsc -p .",
-    "test": "echo \"(smoke tested via core/specs compile)\""
+    "test": "echo \"(smoke tested via  compile)\""
   },
   "peerDependencies": {
     "@typespec/compiler": "^1.12.0-dev"

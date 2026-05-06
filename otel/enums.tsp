@@ -1,10 +1,10 @@
 // =============================================================================
-// QYL v2.0 - OpenTelemetry Core Enumerations
+// ANcpLua v2.0 - OpenTelemetry Core Enumerations
 // =============================================================================
 // All OTel standard enumerations following Semantic Conventions v1.40.
 // =============================================================================
 
-namespace Qyl.OTel.Enums;
+namespace ANcpLua.OtelConventions.OTel.Enums;
 
 // =============================================================================
 // Span Enumerations

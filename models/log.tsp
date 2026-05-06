@@ -1,5 +1,5 @@
 // =============================================================================
-// QYL v2.0 - Log Semantic Conventions (OTel v1.40)
+// ANcpLua v2.0 - Log Semantic Conventions (OTel v1.40)
 // =============================================================================
 // Log record attributes and log-specific semantic conventions.
 // =============================================================================
@@ -7,10 +7,10 @@
 import "../common/types.tsp";
 import "../otel/enums.tsp";
 
-using Qyl.Common;
-using Qyl.OTel.Enums;
+using ANcpLua.OtelConventions.Common;
+using ANcpLua.OtelConventions.OTel.Enums;
 
-namespace Qyl.Domains.Observe.Log;
+namespace ANcpLua.OtelConventions.Domains.Observe.Log;
 
 // =============================================================================
 // Log Attributes
@@ -19,27 +19,27 @@ namespace Qyl.Domains.Observe.Log;
 @doc("Log record attributes")
 model LogAttributes {
   @doc("Log record unique identifier")
-  @encodedName("application/json", Qyl.OTel.Keys.Log.RecordUid)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Log.RecordUid)
   recordUid?: string;
 
   @doc("Original log file name")
-  @encodedName("application/json", Qyl.OTel.Keys.Log.FileName)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Log.FileName)
   fileName?: string;
 
   @doc("Full path to log file")
-  @encodedName("application/json", Qyl.OTel.Keys.Log.FilePath)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Log.FilePath)
   filePath?: string;
 
   @doc("Original log file name resolved")
-  @encodedName("application/json", Qyl.OTel.Keys.Log.FileNameResolved)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Log.FileNameResolved)
   fileNameResolved?: string;
 
   @doc("Full path to log file resolved")
-  @encodedName("application/json", Qyl.OTel.Keys.Log.FilePathResolved)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Log.FilePathResolved)
   filePathResolved?: string;
 
   @doc("Log iostream (stdout/stderr)")
-  @encodedName("application/json", Qyl.OTel.Keys.Log.Iostream)
+  @encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.Log.Iostream)
   iostream?: LogIostream;
 }
 

@@ -1,4 +1,4 @@
-# core/specs/generated
+# generated
 
 This directory holds Weaver-generated TypeSpec files. **Do not edit by hand.**
 
@@ -6,14 +6,14 @@ This directory holds Weaver-generated TypeSpec files. **Do not edit by hand.**
 
 | File | Source | Regenerate via |
 | --- | --- | --- |
-| `otel-keys.gen.tsp` | `.tools/semconv-upstream/model` (pinned upstream OTel semantic-conventions) + `eng/semconv/templates/registry/typespec/` | `./eng/semconv/run-weaver.sh` |
+| `otel-keys.gen.tsp` | OpenTelemetry semantic-conventions v1.41.0 YAML model, converted by the source repository's Weaver pipeline before extraction | Re-run the source Weaver pipeline, then replace this checked-in TypeSpec projection |
 
 ## What `otel-keys.gen.tsp` provides
 
-One TypeSpec namespace per OpenTelemetry root group, each declaring `const <Name>: string = "<dotted.key>"`. Extracted qyl-origin `.tsp` models reference these consts inside `@encodedName(...)` instead of hand-typing dotted attribute keys.
+One TypeSpec namespace per OpenTelemetry root group, each declaring `const <Name>: string = "<dotted.key>"`. Extracted `.tsp` models reference these consts inside `@encodedName(...)` instead of hand-typing dotted attribute keys.
 
 ```tsp
-@encodedName("application/json", Qyl.OTel.Keys.GenAi.System)
+@encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.GenAi.System)
 system?: string;
 ```
 
@@ -21,6 +21,6 @@ Deprecated upstream attributes are emitted with `#deprecated "..."` so models th
 
 ## Pin
 
-`semconv_version: "1.41.0"` (set in `eng/semconv/templates/registry/typespec/weaver.yaml` and `eng/semconv/templates/registry/qyl/weaver.yaml`).
+The checked-in projection is pinned to upstream OpenTelemetry semantic-conventions v1.41.0.
 
-Bumping the pin requires updating both files plus the submodule at `.tools/semconv-upstream` — see `eng/semconv/bootstrap-weaver.sh` for the full procedure.
+Bumping the pin requires regenerating this file from the upstream YAML model with Weaver before updating this repository.

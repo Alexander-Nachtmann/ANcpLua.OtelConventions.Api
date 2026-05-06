@@ -1,18 +1,18 @@
 import { createTypeSpecLibrary, paramMessage } from "@typespec/compiler";
 
 export const $lib = createTypeSpecLibrary({
-  name: "@qyl/typespec-emit-duckdb",
+  name: "@ancplua/typespec-emit-duckdb",
   diagnostics: {
     "unmapped-type": {
       severity: "error",
       messages: {
-        default: paramMessage`QYL-DUCK-001: unmapped DuckDB column type '${"name"}' — add a mapping or @duckdbColumn override`,
+        default: paramMessage`ANcpLua-DUCK-001: unmapped DuckDB column type '${"name"}' — add a mapping or @duckdbColumn override`,
       },
     },
     "missing-primary-key": {
       severity: "warning",
       messages: {
-        default: paramMessage`QYL-DUCK-002: table '${"name"}' has no @duckdbPrimaryKey column`,
+        default: paramMessage`ANcpLua-DUCK-002: table '${"name"}' has no @duckdbPrimaryKey column`,
       },
     },
   },
