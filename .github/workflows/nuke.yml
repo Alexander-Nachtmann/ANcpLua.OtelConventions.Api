@@ -1,0 +1,45 @@
+name: Nuke build verification
+
+# Local-build verification gate. Complements (does NOT replace) publish.yml:
+#   - publish.yml stays small + npm-direct so trusted-publishing OIDC keeps working
+#     unchanged.
+#   - nuke.yml runs the IDomainConventionsApi pipeline end-to-end (`./build.sh Check`)
+#     to guarantee restore -> lockstep -> compile -> no-manual-edits -> emit-all ->
+#     determinism -> pack all pass on a clean checkout.
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nuke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Show toolchain
+        run: |
+          node --version
+          npm --version
+          dotnet --version
+
+      - name: Run Nuke Check
+        run: ./build.sh Check
