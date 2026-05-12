@@ -11,3 +11,14 @@ generated/csharp-client/
 generated/js-client/
 generated/json-schema/
 generated/csharp-server/
+
+# Nuke build host outputs.
+build/bin/
+build/obj/
+.nuke/temp/
+
+# Nuke emitter outputs (run via `./build.sh ...`).
+Artifacts/
+
+# npm pack tarballs.
+*.tgz
