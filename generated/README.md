@@ -6,7 +6,7 @@ This directory holds Weaver-generated TypeSpec files. **Do not edit by hand.**
 
 | File | Source | Regenerate via |
 | --- | --- | --- |
-| `otel-keys.gen.tsp` | OpenTelemetry semantic-conventions v1.41.0 YAML model, converted by the source repository's Weaver pipeline before extraction | Re-run the source Weaver pipeline, then replace this checked-in TypeSpec projection |
+| `otel-keys.gen.tsp` | OpenTelemetry semantic-conventions v1.41.0 YAML model, converted by the upstream generator [`ANcpLua/typespec-otel-semconv`](https://github.com/ANcpLua/typespec-otel-semconv) (Weaver-based) | Re-run that generator's pipeline (`scripts/generate.mjs`) and replace this checked-in TypeSpec projection. Lockstep flip planned: this directory becomes a dep on `@ancplua/typespec-otel-semconv@<semconv-version>-<N>` and stops being a checked-in artifact. |
 
 ## What `otel-keys.gen.tsp` provides
 
@@ -23,4 +23,4 @@ Deprecated upstream attributes are emitted with `#deprecated "..."` so models th
 
 The checked-in projection is pinned to upstream OpenTelemetry semantic-conventions v1.41.0.
 
-Bumping the pin requires regenerating this file from the upstream YAML model with Weaver before updating this repository.
+Bumping the pin requires regenerating this file from the upstream YAML model with Weaver — done in [`ANcpLua/typespec-otel-semconv`](https://github.com/ANcpLua/typespec-otel-semconv) — before updating this repository. Direction is one-way: this repo never invokes Weaver directly.
