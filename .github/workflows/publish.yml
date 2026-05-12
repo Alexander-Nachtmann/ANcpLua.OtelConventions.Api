@@ -1,4 +1,4 @@
-name: Publish to npm
+name: Publish to GitHub Packages
 
 on:
   release:
@@ -12,19 +12,24 @@ on:
 
 permissions:
   contents: read
-  id-token: write   # required for npm provenance + trusted publishing
+  packages: write     # required to publish to GitHub Packages
+  id-token: write     # required for npm provenance attestations
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    environment: npm-publish
+    environment: github-packages
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          registry-url: 'https://registry.npmjs.org'
+          # GitHub Packages npm registry — scope @o-ancpplua matches this repo's
+          # GitHub org (O-ANcppLua, lowercased). Auth uses GITHUB_TOKEN below;
+          # no NPM secret needs to live in repo settings.
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@o-ancpplua'
           always-auth: true
 
       - name: Verify package.json is not private
@@ -43,11 +48,8 @@ jobs:
       - name: Lint TypeSpec
         run: npm run lint
 
-      - name: Publish to npm with provenance
+      - name: Publish to GitHub Packages with provenance
         run: npm publish --access public --provenance --tag "${{ inputs.tag || 'latest' }}"
         env:
-          # No NODE_AUTH_TOKEN needed — npmjs Trusted Publishers uses GitHub
-          # Actions OIDC. Set up the publisher relation under
-          # npmjs.com → @ancplua → Settings → Trusted Publishers, pointing at
-          # this workflow file (publish.yml) on this repo + main branch.
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: 'true'

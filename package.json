@@ -1,7 +1,7 @@
 {
-  "name": "@ancplua/otel-conventions-api",
+  "name": "@o-ancpplua/otel-conventions-api",
   "version": "0.1.0",
-  "description": "TypeSpec library projecting OpenTelemetry semantic conventions into a reusable API surface. Distributed under the ANcpLua namespace; not an official OpenTelemetry artifact.",
+  "description": "TypeSpec library projecting OpenTelemetry semantic conventions into a reusable API surface. Distributed under the ANcpLua namespace via GitHub Packages; not an official OpenTelemetry artifact.",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -44,7 +44,8 @@
   ],
   "publishConfig": {
     "access": "public",
-    "provenance": true
+    "provenance": true,
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "build:emitters": "tsc -p emitters/csharp && tsc -p emitters/duckdb && tsc -p emitters/ts-types && tsc -p emitters/otelconventions-lint",
