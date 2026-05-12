@@ -1,0 +1,53 @@
+name: Publish to npm
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'npm dist-tag (default: latest)'
+        required: false
+        default: 'latest'
+
+permissions:
+  contents: read
+  id-token: write   # required for npm provenance + trusted publishing
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm-publish
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+          always-auth: true
+
+      - name: Verify package.json is not private
+        run: |
+          if [ "$(node -p "require('./package.json').private || false")" = "true" ]; then
+            echo "::error::package.json has \"private\": true — refusing to publish."
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: npm ci || npm install --no-audit --no-fund
+
+      - name: Build local emitters
+        run: npm run build:emitters
+
+      - name: Lint TypeSpec
+        run: npm run lint
+
+      - name: Publish to npm with provenance
+        run: npm publish --access public --provenance --tag "${{ inputs.tag || 'latest' }}"
+        env:
+          # No NODE_AUTH_TOKEN needed — npmjs Trusted Publishers uses GitHub
+          # Actions OIDC. Set up the publisher relation under
+          # npmjs.com → @ancplua → Settings → Trusted Publishers, pointing at
+          # this workflow file (publish.yml) on this repo + main branch.
+          NPM_CONFIG_PROVENANCE: 'true'
