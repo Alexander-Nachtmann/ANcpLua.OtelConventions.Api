@@ -69,7 +69,7 @@
     "@typespec/compiler": "1.12.0-dev.10",
     "@typespec/events": "0.82.0-dev.2",
     "@typespec/http": "1.12.0-dev.6",
-    "@typespec/http-server-csharp": "0.58.0-alpha.28-dev.4",
+    "@typespec/http-server-csharp": "0.58.0-dev.3",
     "@typespec/json-schema": "1.12.0-dev.2",
     "@typespec/openapi": "1.12.0-dev.2",
     "@typespec/openapi3": "1.12.0-dev.4",
