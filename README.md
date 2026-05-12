@@ -1,8 +1,31 @@
 # `@o-ancpplua/otel-conventions-api`
 
-TypeSpec library projecting OpenTelemetry semantic conventions into a reusable API surface. Distributed on **GitHub Packages** under the `@o-ancpplua` scope (matches the `O-ANcppLua` GitHub org). **Not an official OpenTelemetry artifact** — the upstream OpenTelemetry semantic-conventions YAML model remains the authority; this is a TypeSpec projection and API experiment under the ANcpLua namespace.
+TypeSpec library projecting OpenTelemetry semantic conventions into a reusable API surface for qyl. Distributed on **GitHub Packages** under the `@o-ancpplua` scope (matches the `O-ANcppLua` GitHub org). **Not an official OpenTelemetry artifact** — the upstream OpenTelemetry semantic-conventions YAML model remains the authority; this is a TypeSpec API projection under the ANcpLua namespace.
 
 Extracted from <https://github.com/O-ANcppLua/qyl> after PR #255.
+
+## How this repo relates to `typespec-otel-semconv`
+
+Two repos, two scopes, one contract:
+
+| Repo | Role | Package | Inputs | Outputs |
+| --- | --- | --- | --- | --- |
+| [`ANcpLua/typespec-otel-semconv`](https://github.com/ANcpLua/typespec-otel-semconv) | **Upstream OTel semconv generator** (Weaver-based, long-term OpenTelemetry contribution target — see [How to write semantic conventions](https://opentelemetry.io/docs/specs/semconv/general/how-to-write-conventions/)) | `@ancplua/typespec-otel-semconv` | OpenTelemetry semantic-conventions YAML model, pinned at `v1.41.0` | `lib/otel-keys.tsp` (TypeSpec projection of OTel keys) |
+| **This repo** | **Downstream qyl API surface** (consumes the generator's output to define qyl's domain API contracts) | `@o-ancpplua/otel-conventions-api` | The generator's `otel-keys.tsp` (currently checked in as `generated/otel-keys.gen.tsp` until the lockstep flip) | C# / DuckDB / TS-types / lint emitter outputs via local `emitters/` |
+
+```
+┌─────────────────────────────┐                    ┌─────────────────────────────────┐
+│ typespec-otel-semconv       │                    │ ANcpLua.OtelConventions.Api     │
+│                             │                    │                                 │
+│ Weaver + YAML @ v1.41.0     │ ── npm publish ──▶ │ npm ci → tsp compile domain     │
+│   → lib/otel-keys.tsp       │  @ancplua/...      │   → emitters/{csharp,duckdb,…}  │
+│   → @ancplua/...@1.41.0-N   │  @1.41.0-N         │   → @o-ancpplua/...@x.y.z       │
+└─────────────────────────────┘                    └─────────────────────────────────┘
+```
+
+The split keeps the upstream contribution clean — `typespec-otel-semconv` could be donated, forked, or evolved on the official semconv release cadence without dragging qyl's domain models with it. Consumers who want only the OTel signal projection install `@ancplua/typespec-otel-semconv`; consumers who want the full qyl API surface install `@o-ancpplua/otel-conventions-api` (which depends on it transitively once the lockstep flip lands).
+
+Direction is one-way: this repo never regenerates from YAML. Only the generator touches Weaver and the upstream model.
 
 ## Install
 
@@ -36,11 +59,12 @@ import "@o-ancpplua/otel-conventions-api/generated/otel-keys";  // generated sem
 
 ## Contents
 
-- `main.tsp` — TypeSpec entry point.
-- `otel/` — OpenTelemetry-shaped core models; consumers should import via `otel/otel-conventions.tsp`.
+- `index.tsp` — published TypeSpec entry point reached via `import "@o-ancpplua/otel-conventions-api"`.
+- `main.tsp` — local-development entry point that additionally wires the build-only emit routing (`emit-config.tsp`, `emit-duckdb.tsp`); not shipped to consumers.
+- `otel/` — OpenTelemetry-shaped core models; consumers reach the barrel via `import "@o-ancpplua/otel-conventions-api/otel"`.
 - `generated/otel-keys.gen.tsp` — generated semantic-convention key constants from upstream pinned at v1.41.0.
 - `models/`, `api/`, `common/`, `intelligence/` — API models and routes.
-- `emitters/` — local TypeSpec emitters required by `tspconfig.yaml` (csharp, duckdb, ts-types, otelconventions-lint).
+- `emitters/` — local TypeSpec emitters required by `tspconfig.yaml` (csharp, duckdb, ts-types, otelconventions-lint); not shipped to consumers.
 
 ## Local development
 

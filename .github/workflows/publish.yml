@@ -6,14 +6,18 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'npm dist-tag (default: latest)'
+        description: 'npm dist-tag (alphanumerics, dot, underscore, hyphen). Leave blank to auto-pick (latest for stable releases, next for prereleases).'
         required: false
-        default: 'latest'
+        default: ''
 
 permissions:
   contents: read
   packages: write     # required to publish to GitHub Packages
   id-token: write     # required for npm provenance attestations
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   publish:
@@ -40,16 +44,41 @@ jobs:
           fi
 
       - name: Install dependencies
-        run: npm ci || npm install --no-audit --no-fund
+        run: npm ci
 
       - name: Build local emitters
         run: npm run build:emitters
 
-      - name: Lint TypeSpec
+      - name: Lint TypeSpec (full surface)
         run: npm run lint
 
+      - name: Lint TypeSpec (published surface only)
+        run: npm run lint:public
+
+      - name: Resolve npm dist-tag
+        shell: bash
+        env:
+          DISPATCH_TAG: ${{ inputs.tag }}
+          IS_PRERELEASE: ${{ github.event.release.prerelease }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] && [ -n "$DISPATCH_TAG" ]; then
+            dist_tag="$DISPATCH_TAG"
+          elif [ "$IS_PRERELEASE" = "true" ]; then
+            dist_tag="next"
+          else
+            dist_tag="latest"
+          fi
+          if ! [[ "$dist_tag" =~ ^[A-Za-z0-9._-]+$ ]]; then
+            echo "::error::Invalid npm dist-tag: $dist_tag (must match ^[A-Za-z0-9._-]+$)"
+            exit 1
+          fi
+          echo "NPM_DIST_TAG=$dist_tag" >> "$GITHUB_ENV"
+          echo "Resolved dist-tag: $dist_tag"
+
       - name: Publish to GitHub Packages with provenance
-        run: npm publish --access public --provenance --tag "${{ inputs.tag || 'latest' }}"
+        run: npm publish --access public --provenance --tag "$NPM_DIST_TAG"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: 'true'
