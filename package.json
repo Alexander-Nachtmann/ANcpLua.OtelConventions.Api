@@ -67,7 +67,7 @@
     "@ancplua/typespec-otelconventions-lint": "file:./emitters/otelconventions-lint",
     "@types/node": "25.7.0",
     "@typespec/compiler": "1.12.0",
-    "@typespec/events": "0.82.0-dev.2",
+    "@typespec/events": "0.82.0",
     "@typespec/http": "1.12.0",
     "@typespec/http-server-csharp": "0.58.0-dev.3",
     "@typespec/json-schema": "1.12.0",
