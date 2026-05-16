@@ -335,14 +335,6 @@ reviews:
   - path: Pipeline/**
     instructions: NUKE generation/release pipeline. Keep fluent C# targets, typed
       parameters, no raw shell, and generator outputs reproducible.
-  - path: "**/*.yaml"
-    instructions: OpenTelemetry/TypeSpec convention models. Validate schema shape,
-      stability names, attribute reuse, generated-output consistency, and that changes
-      regenerate all emitted C#/TS/docs artifacts through the documented generator.
-  - path: "**/*.yml"
-    instructions: OpenTelemetry/TypeSpec convention models. Validate schema shape,
-      stability names, attribute reuse, generated-output consistency, and that changes
-      regenerate all emitted C#/TS/docs artifacts through the documented generator.
   abort_on_close: true
   disable_cache: true
   slop_detection:
