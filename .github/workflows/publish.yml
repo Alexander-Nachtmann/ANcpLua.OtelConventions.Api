@@ -28,7 +28,7 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: '22'
+          node-version: '24'
           # GitHub Packages npm registry — scope @o-ancpplua matches this repo's
           # GitHub org (O-ANcppLua, lowercased). Auth uses GITHUB_TOKEN below;
           # no NPM secret needs to live in repo settings.
