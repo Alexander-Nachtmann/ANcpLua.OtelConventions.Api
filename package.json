@@ -76,7 +76,7 @@
     "@typespec/rest": "0.82.0",
     "@typespec/sse": "0.82.0-dev.2",
     "@typespec/streams": "0.82.0",
-    "@typespec/versioning": "0.82.0-dev.2",
+    "@typespec/versioning": "0.82.0",
     "openapi-typescript": "7.13.0",
     "typescript": "6.0.3",
     "vitest": "4.1.6"
